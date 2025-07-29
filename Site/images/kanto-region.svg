@@ -1,0 +1,23 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="kantoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FF8E8E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFB1B1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="url(#kantoGradient)"/>
+  
+  <!-- Formes de montagnes stylisées -->
+  <polygon points="0,400 200,200 400,250 600,150 800,200 800,400" fill="rgba(255,255,255,0.1)"/>
+  <polygon points="0,400 150,300 350,320 550,250 750,280 800,400" fill="rgba(255,255,255,0.05)"/>
+  
+  <!-- Pokeball stylisée -->
+  <circle cx="650" cy="100" r="40" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="3"/>
+  <circle cx="650" cy="100" r="15" fill="rgba(255,255,255,0.6)"/>
+  
+  <!-- Texte Kanto -->
+  <text x="400" y="350" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="72" font-weight="bold" fill="rgba(255,255,255,0.8)">KANTO</text>
+  <text x="400" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.6)">Région d'origine</text>
+</svg>

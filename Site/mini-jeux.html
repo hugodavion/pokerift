@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-jeux Pokémon</title>
+    <meta name="description" content="Mini-jeux interactifs Pokémon basés sur la PokéAPI. Testez vos connaissances et amusez-vous !">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modern-improvements.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="../placeholder-character.png">
+</head>
+<body>
+    <!-- Barre Latérale -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="images/hoopa.png" alt="Pokémon Rift Logo" class="logo">
+            <div class="sidebar-title">PokeRift</div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html"><img src="images/center.png" alt="Accueil"> <span>Accueil</span></a></li>
+                <li><a href="pokedex.html"><img src="images/pokedex.png" alt="Pokédex"> <span>Pokédex</span></a></li>
+                <li><a href="regions.html"><img src="images/map.png" alt="Régions"> <span>Régions</span></a></li>
+                <li><a href="personnages.html"><img src="images/red.jpg" alt="Personnages"> <span>Personnages</span></a></li>
+                <li><a href="lore.html"><img src="images/center.png" alt="Lore"> <span>Lore</span></a></li>
+                <li><a href="emulation.html"><img src="images/pokedex.png" alt="Emulation"> <span>Émulation</span></a></li>
+                <li><a href="mini-jeux.html" class="active"><img src="images/center.png" alt="Mini-jeux"> <span>Mini-jeux</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+    <header class="header">
+        <h1>Mini-jeux Pokémon</h1>
+    </header>
+    <main class="content">
+       
+        <section id="minigames">
+            <div class="minigames-grid">
+                <div class="minigame-card" id="whoisthat">
+                    <h3>Qui est-ce ?</h3>
+                    <p>Devinez le Pokémon à partir de son sprite !</p>
+                    <div id="whoisthat-game">
+                        <img id="whoisthat-sprite" src="" alt="Sprite mystère" style="width:128px;height:128px;filter:brightness(0) grayscale(1);margin:20px 0;">
+                        <div id="whoisthat-choices" class="qcm-choices"></div>
+                        <div id="whoisthat-feedback"></div>
+                    </div>
+                </div>
+                <div class="minigame-card" id="typequiz">
+                    <h3>Quiz des Types</h3>
+                    <p>Trouvez le ou les types d'un Pokémon donné !</p>
+                    <div id="typequiz-game">
+                        <img id="typequiz-sprite" src="" alt="Sprite typequiz" style="width:96px;height:96px;margin:18px 0;">
+                        <span id="typequiz-pokemon"></span>
+                        <div id="typequiz-choices" class="qcm-choices"></div>
+                        <div id="typequiz-feedback"></div>
+                    </div>
+                </div>
+                <div class="minigame-card" id="memory">
+                    <h3>Memory Pokémon</h3>
+                    <p>Retourne les cartes et retrouve les paires de Pokémon !</p>
+                    <div id="memory-game">
+                        <div id="memory-board"></div>
+                        <div id="memory-feedback"></div>
+                        <button id="memory-restart" style="display:none;margin-top:1.2rem;">Rejouer</button>
+                    </div>
+                </div>
+                <div class="minigame-card" id="genquiz">
+                    <h3>Quiz Génération</h3>
+                    <p>À quelle génération appartient ce Pokémon ?</p>
+                    <div id="genquiz-game">
+                        <img id="genquiz-sprite" src="" alt="Sprite génération" style="width:96px;height:96px;margin:18px 0;">
+                        <div id="genquiz-choices" class="qcm-choices"></div>
+                        <div id="genquiz-feedback"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Pokémon Rift - Mini-jeux</p>
+    </footer>
+    <script src="js/minijeux.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="kalosGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF69B4;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FF1493;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DC143C;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="100%" height="100%" fill="url(#kalosGradient)"/>
+  
+  <!-- Tour Eiffel stylisée -->
+  <polygon points="380,300 420,300 415,200 385,200" fill="rgba(255,255,255,0.3)"/>
+  <polygon points="370,200 430,200 425,150 375,150" fill="rgba(255,255,255,0.35)"/>
+  <polygon points="390,150 410,150 405,100 395,100" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="400" cy="95" r="5" fill="rgba(255,255,255,0.6)"/>
+  
+  <!-- Arc de Triomphe stylisé -->
+  <rect x="150" y="220" width="80" height="100" fill="rgba(255,255,255,0.25)" rx="5"/>
+  <rect x="170" y="240" width="40" height="80" fill="rgba(0,0,0,0.1)" rx="20"/>
+  
+  <!-- Château/Architecture française -->
+  <polygon points="600,250 650,250 650,320 625,330 600,320" fill="rgba(255,255,255,0.3)"/>
+  <polygon points="610,250 640,250 635,230 615,230" fill="rgba(255,255,255,0.35)"/>
+  <rect x="620" y="220" width="10" height="15" fill="rgba(255,255,255,0.4)"/>
+  
+  <!-- Symboles de mode/beauté -->
+  <circle cx="250" cy="150" r="20" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+  <polygon points="245,145 255,145 250,155" fill="rgba(255,255,255,0.5)"/>
+  
+  <circle cx="550" cy="120" r="15" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.45)" stroke-width="2"/>
+  <rect x="545" y="115" width="10" height="10" fill="rgba(255,255,255,0.4)"/>
+  
+  <!-- Vignobles stylisés -->
+  <ellipse cx="120" cy="350" rx="50" ry="15" fill="rgba(34,139,34,0.3)"/>
+  <ellipse cx="680" cy="380" rx="60" ry="20" fill="rgba(34,139,34,0.25)"/>
+  
+  <!-- Texte Kalos -->
+  <text x="400" y="350" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="72" font-weight="bold" fill="rgba(255,255,255,0.9)">KALOS</text>
+  <text x="400" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.7)">Élégance et beauté</text>
+</svg>

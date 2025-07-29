@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personnages - PokeRift</title>
+    <meta name="description" content="Découvrez tous les personnages iconiques de l'univers Pokémon - Anime, jeux vidéo et manga">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/modern-improvements.css">
+    <style>
+    /* Modernisation page personnages */
+    .characters-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 16px 64px 16px;
+    }
+    .characters-section {
+      margin-top: 32px;
+    }
+    .characters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+      margin-top: 24px;
+    }
+    .character-card {
+      background: rgba(255,255,255,0.13);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      padding: 28px 18px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      transition: transform 0.18s, box-shadow 0.18s;
+      cursor: pointer;
+      border: 1.5px solid rgba(255,255,255,0.22);
+      overflow: hidden;
+      animation: fadeInUp 0.5s cubic-bezier(.4,2,.6,1) both;
+    }
+    .character-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.22);
+      background: rgba(255,255,255,0.18);
+    }
+    .character-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #FFD700;
+      margin-bottom: 14px;
+      background: #fff;
+      box-shadow: 0 2px 12px #ffd70033;
+    }
+    .character-name {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.1rem;
+      color: #222;
+      margin-bottom: 6px;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+    .character-role {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .character-region {
+      font-size: 0.95rem;
+      color: #888;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .character-desc {
+      font-size: 0.98rem;
+      color: #333;
+      text-align: center;
+      margin-bottom: 0;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    /* Modale personnage modernisée */
+    .character-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background: rgba(30,34,54,0.82);
+      justify-content: center;
+      align-items: center;
+      animation: fadeInUp 0.3s;
+    }
+    .character-modal-content {
+      background: rgba(255,255,255,0.13);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+      padding: 36px 32px 28px 32px;
+      min-width: 320px;
+      max-width: 95vw;
+      color: #222;
+      position: relative;
+      text-align: center;
+      border: 2px solid #FFD700;
+      animation: fadeInUp 0.3s;
+    }
+    .character-modal-content .close {
+      position: absolute;
+      top: 10px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: #FFD700;
+      font-size: 2.2rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: color 0.2s;
+    }
+    .character-modal-content .close:hover {
+      color: #fff;
+    }
+    .character-modal-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #FFD700;
+      margin-bottom: 16px;
+      background: #fff;
+      box-shadow: 0 2px 16px #ffd70033;
+    }
+    .character-modal-name {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.3rem;
+      color: #FFD700;
+      margin-bottom: 8px;
+    }
+    .character-modal-role {
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 8px;
+    }
+    .character-modal-region {
+      font-size: 1rem;
+      color: #888;
+      margin-bottom: 12px;
+    }
+    .character-modal-desc {
+      font-size: 1.05rem;
+      color: #222;
+      margin-bottom: 0;
+    }
+    @media (max-width: 700px) {
+      .characters-container { padding: 10px 2vw 40px 2vw; }
+      .character-modal-content { min-width: 0; padding: 18px 6vw 18px 6vw; }
+      .characters-grid { gap: 16px; }
+    }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>P</text></svg>">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+  <div class="main-flex-wrapper">
+    <!-- Barre Latérale -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="images/hoopa.png" alt="Pokémon Rift Logo" class="logo">
+            <div class="sidebar-title">PokeRift</div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html"><img src="images/center.png" alt="Accueil"> <span>Accueil</span></a></li>
+                <li><a href="pokedex.html"><img src="images/pokedex.png" alt="Pokédex"> <span>Pokédex</span></a></li>
+                <li><a href="regions.html"><img src="images/map.png" alt="Régions"> <span>Régions</span></a></li>
+                <li><a href="personnages.html" class="active"><img src="images/red.jpg" alt="Personnages"> <span>Personnages</span></a></li>
+                <li><a href="lore.html"><img src="images/center.png" alt="Lore"> <span>Lore</span></a></li>
+                <li><a href="emulation.html"><img src="images/pokedex.png" alt="Émulation"> <span>Émulation</span></a></li>
+                <li><a href="mini-jeux.html"><img src="images/center.png" alt="Mini-jeux"> <span>Mini-jeux</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+    <div class="main-content-centered">
+      <!-- Bouton menu mobile -->
+      <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+      <!-- Header -->
+      <header class="header">
+          <h1 style="font-family:'Press Start 2P',monospace;font-size:2.1rem;color:#FFD700;text-shadow:0 2px 8px #ffd70033;">Personnages Pokémon</h1>
+          <p style="font-size:1.1rem;color:#444;margin-top:8px;">Découvrez tous les personnages emblématiques de l'univers Pokémon</p>
+      </header>
+      <!-- Contenu principal -->
+      <main class="characters-container">
+          <!-- Section Filtres -->
+          <section class="characters-filters">
+              <h2>Rechercher des personnages</h2>
+              <div class="filters-row">
+                  <div class="filter-group">
+                      <label for="categoryFilter">Catégorie</label>
+                      <select id="categoryFilter">
+                          <option value="all">Toutes les catégories</option>
+                          <option value="protagonists">Protagonistes</option>
+                          <option value="rivals">Rivaux</option>
+                          <option value="gym-leaders">Champions d'Arène</option>
+                          <option value="elite-four">Conseil des 4</option>
+                          <option value="champions">Maîtres</option>
+                          <option value="team-rocket">Team Rocket</option>
+                          <option value="professors">Professeurs</option>
+                          <option value="companions">Compagnons</option>
+                      </select>
+                  </div>
+                  <div class="filter-group">
+                      <label for="regionFilter">Région</label>
+                      <select id="regionFilter">
+                          <option value="all">Toutes les régions</option>
+                          <option value="kanto">Kanto</option>
+                          <option value="johto">Johto</option>
+                          <option value="hoenn">Hoenn</option>
+                          <option value="sinnoh">Sinnoh</option>
+                          <option value="unova">Unova</option>
+                          <option value="kalos">Kalos</option>
+                          <option value="alola">Alola</option>
+                          <option value="galar">Galar</option>
+                          <option value="paldea">Paldea</option>
+                      </select>
+                  </div>
+                  <div class="filter-group">
+                      <label for="searchInput">Recherche</label>
+                      <input type="text" id="searchInput" placeholder="Nom du personnage...">
+                  </div>
+              </div>
+          </section>
+          <!-- Section Personnages -->
+          <section class="characters-section">
+              <div class="characters-grid" id="charactersGrid">
+                  <!-- Les personnages seront générés par JavaScript -->
+              </div>
+          </section>
+      </main>
+    </div>
+  </div>
+
+    <!-- Modal détails personnage -->
+    <div id="characterModal" class="character-modal">
+        <div class="character-modal-content">
+            <span class="close" onclick="closeCharacterModal()">&times;</span>
+            <div id="characterDetails">
+                <!-- Le contenu sera généré dynamiquement -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Pokémon Rift - Site de fans</p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+    <script src="js/personnages.js"></script>
+    <script>
+    // Modern UI: affichage dynamique des personnages (exemple de structure)
+    document.addEventListener('DOMContentLoaded', function() {
+      // Exemple de données (à remplacer par un fetch ou une vraie base)
+      const characters = [
+        { name: 'Red', avatar: 'images/red.jpg', role: 'Protagoniste', region: 'Kanto', desc: 'Premier héros de la saga, Red est le dresseur emblématique de Kanto.' },
+        { name: 'Blue', avatar: 'images/placeholder-character.png', role: 'Rival', region: 'Kanto', desc: 'Rival de Red, Blue est aussi le premier Maître de la Ligue Pokémon.' },
+        { name: 'Sacha', avatar: 'images/placeholder-character.png', role: 'Protagoniste', region: 'Kanto', desc: 'Héros de l’anime, Sacha rêve de devenir Maître Pokémon.' },
+        { name: 'Ondine', avatar: 'images/placeholder-character.png', role: 'Compagnon', region: 'Kanto', desc: 'Championne d’arène et amie de Sacha, spécialiste des Pokémon Eau.' },
+        { name: 'Pierre', avatar: 'images/placeholder-character.png', role: 'Compagnon', region: 'Kanto', desc: 'Champion d’arène et expert en Pokémon Roche, fidèle ami de Sacha.' },
+        { name: 'Cynthia', avatar: 'images/placeholder-character.png', role: 'Maître', region: 'Sinnoh', desc: 'Maître de la Ligue de Sinnoh, célèbre pour son redoutable Carchacrok.' },
+        { name: 'Giovanni', avatar: 'images/placeholder-character.png', role: 'Boss Team Rocket', region: 'Kanto', desc: 'Chef de la Team Rocket et champion d’arène de Jadielle.' },
+        { name: 'Prof. Chen', avatar: 'images/placeholder-character.png', role: 'Professeur', region: 'Kanto', desc: 'Le professeur emblématique qui remet le premier Pokémon.' },
+        { name: 'Lysandre', avatar: 'images/placeholder-character.png', role: 'Antagoniste', region: 'Kalos', desc: 'Chef de la Team Flare, il souhaite un monde « beau » à tout prix.' },
+        { name: 'Leon', avatar: 'images/placeholder-character.png', role: 'Maître', region: 'Galar', desc: 'Maître de la Ligue de Galar, célèbre pour son Dracaufeu Gigamax.' },
+        // ...ajoutez d’autres personnages ici
+      ];
+      const grid = document.getElementById('charactersGrid');
+      grid.innerHTML = '';
+      characters.forEach(char => {
+        const card = document.createElement('div');
+        card.className = 'character-card';
+        card.innerHTML = `
+          <img src="${char.avatar}" alt="${char.name}" class="character-avatar">
+          <div class="character-name">${char.name}</div>
+          <div class="character-role">${char.role}</div>
+          <div class="character-region">${char.region}</div>
+          <div class="character-desc">${char.desc}</div>
+        `;
+        card.onclick = function() {
+          document.getElementById('characterModal').style.display = 'flex';
+          document.getElementById('characterDetails').innerHTML = `
+            <img src="${char.avatar}" alt="${char.name}" class="character-modal-avatar">
+            <div class="character-modal-name">${char.name}</div>
+            <div class="character-modal-role">${char.role}</div>
+            <div class="character-modal-region">${char.region}</div>
+            <div class="character-modal-desc">${char.desc}</div>
+          `;
+        };
+        grid.appendChild(card);
+      });
+      // Fermer la modale
+      window.closeCharacterModal = function() {
+        document.getElementById('characterModal').style.display = 'none';
+      };
+      // Fermer la modale au clic en dehors
+      document.getElementById('characterModal').onclick = function(e) {
+        if (e.target === this) closeCharacterModal();
+      };
+    });
+    </script>
+</body>
+</html>

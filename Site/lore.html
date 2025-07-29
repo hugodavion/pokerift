@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lore Pokémon - Mythes, Légendes & Histoire | Pokémon Rift</title>
+  <meta name="description" content="Plongez dans des dizaines d'histoires, mythes et légendes de l'univers Pokémon. Chronologie, dieux, créatures, civilisations, secrets et anecdotes !">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/title-override.css">
+  <link rel="stylesheet" href="css/modern-improvements.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>P</text></svg>">
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body {
+      background: #7d91ac;
+    }
+    .lore-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 32px 0 18px 0;
+      background: #3b4a5a;
+      border-radius: 16px;
+      padding: 10px 0;
+      box-shadow: 0 2px 12px #0d1b2a11;
+    }
+    .lore-cat-btn {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #FFD700;
+      border-radius: 16px;
+      padding: 10px 22px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      outline: none;
+    }
+    .lore-cat-btn.active, .lore-cat-btn:hover {
+      background: #FFD700;
+      color: #222;
+    }
+    .lore-timeline {
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      padding: 0 10px;
+      background: transparent;
+      border-radius: 16px;
+    }
+    .lore-timeline-event {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 28px;
+      animation: fadeInUp 0.7s both;
+    }
+    .lore-timeline-dot {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: #FFD700;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 8px #FFD70033;
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+    .lore-timeline-content {
+      background: #5c6e89;
+      border-radius: 14px;
+      padding: 16px 20px;
+      box-shadow: 0 2px 12px #0d1b2a11;
+      border-left: 4px solid #FFD700;
+      position: relative;
+      flex: 1;
+      color: #fff;
+    }
+    .lore-timeline-content h3 {
+      margin: 0 0 6px 0;
+      color: #2d3a4a;
+      font-size: 1.2rem;
+      font-family: 'Press Start 2P', monospace;
+    }
+    .lore-timeline-content p {
+      color: #222;
+      font-size: 1.05rem;
+      margin: 0;
+    }
+    .lore-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+      margin: 32px 0 48px 0;
+      background: transparent;
+      border-radius: 16px;
+      padding: 0;
+    }
+    .lore-card {
+      background: #5c6e89;
+      border-radius: 18px;
+      box-shadow: 0 4px 18px #0d1b2a22;
+      padding: 24px 16px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+      cursor: pointer;
+      border: 1.5px solid #FFD70033;
+      overflow: hidden;
+      animation: fadeInUp 0.5s cubic-bezier(.4,2,.6,1) both;
+      color: #fff;
+    }
+    .lore-card:hover {
+      transform: translateY(-6px) scale(1.025);
+      box-shadow: 0 8px 32px #FFD70022;
+      background: #415A77;
+    }
+    .lore-card-img {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 2px 12px #ffd70022;
+      margin-bottom: 10px;
+    }
+    .lore-card-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.1rem;
+      color: #2d3a4a;
+      margin-bottom: 6px;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+    .lore-card-summary {
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .lore-card-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+      justify-content: center;
+    }
+    .lore-badge {
+      background: #FFD70022;
+      color: #FFD700;
+      border-radius: 12px;
+      padding: 3px 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: 1px solid #FFD70044;
+    }
+    .lore-card-meta {
+      color: #FFD70099;
+      font-size: 0.98rem;
+      margin-bottom: 0;
+      text-align: center;
+    }
+    .lore-modal {
+      position: fixed;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background: rgba(13,27,42,0.88);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeInUp 0.3s;
+    }
+    .lore-modal-content {
+      background: #5c6e89;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px #FFD70022;
+      padding: 32px 24px 22px 24px;
+      min-width: 320px;
+      max-width: 95vw;
+      color: #fff;
+      position: relative;
+      text-align: center;
+      border: 2px solid #FFD700;
+      animation: fadeInUp 0.3s;
+    }
+    .lore-modal-content .close-lore-modal {
+      position: absolute;
+      top: 10px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: #FFD700;
+      font-size: 2.2rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: color 0.2s;
+    }
+    .lore-modal-content .close-lore-modal:hover {
+      color: #0D1B2A;
+    }
+    @media (max-width: 700px) {
+      .lore-grid { grid-template-columns: 1fr; gap: 12px; }
+      .lore-card { padding: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="images/hoopa.png" alt="Pokémon Rift Logo" class="logo">
+      <div class="sidebar-title">PokeRift</div>
+    </div>
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="index.html"><img src="images/center.png" alt="Accueil"> <span>Accueil</span></a></li>
+        <li><a href="pokedex.html"><img src="images/pokedex.png" alt="Pokédex"> <span>Pokédex</span></a></li>
+        <li><a href="regions.html"><img src="images/map.png" alt="Régions"> <span>Régions</span></a></li>
+        <li><a href="personnages.html"><img src="images/red.jpg" alt="Personnages"> <span>Personnages</span></a></li>
+        <li><a href="lore.html" class="active"><img src="images/center.png" alt="Lore"> <span>Lore</span></a></li>
+        <li><a href="emulation.html"><img src="images/pokedex.png" alt="Emulation"> <span>Émulation</span></a></li>
+        <li><a href="mini-jeux.html"><img src="images/center.png" alt="Mini-jeux"> <span>Mini-jeux</span></a></li>
+      </ul>
+    </nav>
+  </aside>
+  <!-- Header vidéo comme sur index.html -->
+  <header class="header">
+    <div class="header-video">
+      <video autoplay loop muted>
+        <source src="videos/header-video.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo HTML5.
+      </video>
+    </div>
+    <h1>Lore & Mythes Pokémon</h1>
+  </header>
+  <main class="content">
+    
+    <div class="lore-timeline" id="loreTimeline"></div>
+    <div class="lore-grid" id="loreGrid"></div>
+    <div id="loreModal" class="lore-modal" style="display:none;">
+      <div class="lore-modal-content">
+        <span class="close-lore-modal">&times;</span>
+        <div id="loreModalDetails"></div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2024 Pokémon Rift - Plongez dans l'infini du lore Pokémon</p>
+  </footer>
+  <script src="js/scripts.js"></script>
+  <script>
+  // Données massives d'histoires, mythes, anecdotes, dieux, civilisations, etc.
+  const loreStories = [
+    // Création et dieux
+    {cat:'création', img:'images/pokedex.png', title:'Arceus, le Dieu Originel', summary:'Le Pokémon Alpha qui créa l’univers depuis un œuf cosmique.', badges:['Création','Dieu','Alpha'], meta:'Pokémon Diamant & Perle', text:`Arceus est le Pokémon Créateur, né d’un œuf dans le néant absolu. Il façonna Dialga (temps), Palkia (espace) et Giratina (antimatière), puis créa l’univers Pokémon. Il peut changer de type grâce aux Plaques et est vénéré comme le dieu suprême.`},
+    {cat:'création', img:'images/center.png', title:'Mew, l’Ancêtre Originel', summary:'Le Pokémon mythique ancêtre de tous les autres.', badges:['Création','Mythique','Psy'], meta:'Film Pokémon - Mewtwo contre-attaque', text:`Mew est considéré comme l’ancêtre génétique de tous les Pokémon. Il est capable d’apprendre toutes les capacités et son ADN a servi à créer Mewtwo.`},
+    {cat:'création', img:'images/placeholder-character.png', title:'La Formation des Régions', summary:'Comment le monde Pokémon s’est divisé en régions.', badges:['Création','Civilisation'], meta:'Mythes régionaux', text:`Après la création du monde, les continents se sont séparés, donnant naissance à Kanto, Johto, Hoenn, Sinnoh, Unys, Kalos, Alola, Galar et Paldea. Chaque région possède ses propres légendes et divinités.`},
+    // Légendes et mythes majeurs
+    {cat:'légende', img:'images/hoopa.png', title:'Ho-Oh, l’Oiseau Arc-en-ciel', summary:'Premier Pokémon légendaire aperçu dans l’anime.', badges:['Légende','Feu/Vol','Gardien'], meta:'Épisode 1 - Départ à Bourg Palette', text:`Ho-Oh est le gardien des cieux, capable de ressusciter les morts. Ceux qui l’aperçoivent sont promis à un destin exceptionnel.`},
+    {cat:'légende', img:'images/placeholder-character.png', title:'Lugia, Gardien des Mers', summary:'Le maître des oiseaux légendaires et protecteur des océans.', badges:['Légende','Psy/Vol','Gardien'], meta:'Film : Pokémon 2000', text:`Lugia vit dans les profondeurs marines et peut provoquer des tempêtes de 40 jours. Il maintient l’équilibre entre Artikodin, Électhor et Sulfura.`},
+    {cat:'légende', img:'images/placeholder-character.png', title:'Les Bêtes Légendaires', summary:'Raikou, Entei et Suicune - Nés des cendres.', badges:['Légende','Trio','Résurrection'], meta:'Tour Ferraille', text:`Ces trois Pokémon sont nés de la résurrection par Ho-Oh de trois Pokémon ordinaires morts dans l’incendie de la Tour Ferraille.`},
+    {cat:'légende', img:'images/placeholder-character.png', title:'Giratina, le Renégat', summary:'Gardien de la Dimension Inverse.', badges:['Légende','Spectre/Dragon','Renégat'], meta:'Pokémon Platine', text:`Banni par Arceus pour sa violence, Giratina règne sur la Dimension Inverse et surveille l’équilibre entre les mondes.`},
+    {cat:'légende', img:'images/placeholder-character.png', title:'Kyogre & Groudon', summary:'La lutte pour la terre et la mer.', badges:['Légende','Eau','Sol'], meta:'Pokémon Rubis & Saphir', text:`Kyogre créa les océans, Groudon la terre ferme. Leur affrontement fut stoppé par Rayquaza, gardien du ciel.`},
+    {cat:'légende', img:'images/placeholder-character.png', title:'Rayquaza, le Pacificateur', summary:'Le dragon céleste qui mit fin au chaos.', badges:['Légende','Dragon/Vol','Ciel'], meta:'Pokémon Émeraude', text:`Rayquaza descendit des cieux pour apaiser Kyogre et Groudon, restaurant la paix sur Terre.`},
+    {cat:'légende', img:'images/placeholder-character.png', title:'Les Golems Légendaires', summary:'Regirock, Regice, Registeel, Regieleki, Regidrago.', badges:['Légende','Golem','Ancien'], meta:'Ruines anciennes', text:`Créés par Regigigas, ces golems protègent des secrets enfouis et sont liés à des énigmes ancestrales.`},
+    {cat:'légende', img:'images/placeholder-character.png', title:'Les Créations de Mewtwo', summary:'Le clone le plus puissant.', badges:['Légende','Clone','Psy'], meta:'Laboratoire de Cramois’Île', text:`Mewtwo fut créé à partir de l’ADN de Mew. Il s’est rebellé contre ses créateurs et cherche un sens à son existence.`},
+    // Mythologie et civilisations
+    {cat:'mythologie', img:'images/placeholder-character.png', title:'La Guerre de Kalos', summary:'Un conflit dévastateur il y a 3 000 ans.', badges:['Mythologie','Guerre','Kalos'], meta:'Pokémon X & Y', text:`La guerre de Kalos opposa humains et Pokémon. AZ utilisa l’Arme Suprême pour ressusciter son Floette, causant d’immenses destructions.`},
+    {cat:'mythologie', img:'images/placeholder-character.png', title:'La Légende de l’Éternel', summary:'Un Pokémon immortel parcourt le monde.', badges:['Mythologie','Immortalité'], meta:'Légendes orales', text:`Certains racontent qu’un Pokémon immortel, Zygarde, veille sur l’équilibre écologique de la planète.`},
+    {cat:'mythologie', img:'images/placeholder-character.png', title:'Les Ultra-Chimères', summary:'Des créatures venues d’autres dimensions.', badges:['Mythologie','Ultra-Chimère','Dimension'], meta:'Pokémon Soleil & Lune', text:`Les Ultra-Chimères sont des Pokémon venus d’Ultra-Brèches, défiant les lois de la biologie.`},
+    {cat:'mythologie', img:'images/placeholder-character.png', title:'La Légende de Darkrai', summary:'Le maître des cauchemars.', badges:['Mythologie','Ténèbres','Cauchemar'], meta:'Pokémon Diamant & Perle', text:`Darkrai plonge ses victimes dans des cauchemars éternels, mais protège aussi les innocents contre les mauvais rêves.`},
+    {cat:'mythologie', img:'images/placeholder-character.png', title:'La Légende de Cresselia', summary:'La gardienne des rêves.', badges:['Mythologie','Psy','Rêve'], meta:'Pokémon Diamant & Perle', text:`Cresselia apporte de doux rêves et combat l’influence de Darkrai.`},
+    {cat:'mythologie', img:'images/placeholder-character.png', title:'Les Trois Esprits des Lacs', summary:'Créhelf, Créfollet, Créfadet.', badges:['Mythologie','Esprit','Lac'], meta:'Sinnoh', text:`Ces trois Pokémon incarnent le savoir, l’émotion et la volonté. Ils sont nés du même œuf qu’Arceus.`},
+    // Civilisations et personnages
+    {cat:'civilisation', img:'images/placeholder-character.png', title:'La Civilisation de Sinnoh', summary:'Peuple ancien vénérant Arceus.', badges:['Civilisation','Sinnoh','Ancien'], meta:'Ruines de Sinjoh', text:`Les anciens de Sinnoh ont bâti des temples pour Arceus et les trios légendaires.`},
+    {cat:'civilisation', img:'images/placeholder-character.png', title:'La Dynastie Royale de Galar', summary:'Rois, héros et loups légendaires.', badges:['Civilisation','Galar','Roi'], meta:'Pokémon Épée & Bouclier', text:`La légende de Galar raconte l’histoire de deux héros et des loups Zacian et Zamazenta qui sauvèrent la région du Fléau Noir.`},
+    {cat:'civilisation', img:'images/placeholder-character.png', title:'Les Capitaines d’Alola', summary:'Des épreuves au lieu d’arènes.', badges:['Civilisation','Alola','Capitaine'], meta:'Pokémon Soleil & Lune', text:`À Alola, les Capitaines remplacent les Champions d’Arène et guident les jeunes dresseurs lors d’épreuves initiatiques.`},
+    {cat:'civilisation', img:'images/placeholder-character.png', title:'Les Gardiens des Îles', summary:'Tapu Koko, Tapu Lele, Tapu Bulu, Tapu Fini.', badges:['Civilisation','Alola','Gardien'], meta:'Pokémon Soleil & Lune', text:`Chaque île d’Alola est protégée par un gardien légendaire, vénéré par la population.`},
+    // Personnages et anecdotes
+    {cat:'personnage', img:'images/red.jpg', title:'Red, le Dresseur Légendaire', summary:'Premier héros de la saga.', badges:['Personnage','Kanto','Héros'], meta:'Pokémon Rouge/Bleu/Jaune', text:`Red est le premier Maître de la Ligue Pokémon et l’un des dresseurs les plus respectés.`},
+    {cat:'personnage', img:'images/placeholder-character.png', title:'AZ, le Roi Immortel', summary:'Le roi qui a déclenché la guerre de Kalos.', badges:['Personnage','Kalos','Roi'], meta:'Pokémon X & Y', text:`AZ utilisa l’Arme Suprême pour ressusciter son Floette, bouleversant l’histoire de Kalos.`},
+    {cat:'personnage', img:'images/placeholder-character.png', title:'Cynthia, la Maîtresse de Sinnoh', summary:'Maître de la Ligue et archéologue.', badges:['Personnage','Sinnoh','Maître'], meta:'Pokémon Diamant & Perle', text:`Cynthia est passionnée de mythes et protège l’équilibre de Sinnoh.`},
+    {cat:'personnage', img:'images/placeholder-character.png', title:'Lysandre, le Visionnaire', summary:'Chef de la Team Flare.', badges:['Personnage','Kalos','Antagoniste'], meta:'Pokémon X & Y', text:`Lysandre voulait créer un monde « beau » à tout prix, quitte à tout détruire.`},
+    // Anecdotes et secrets
+    {cat:'anecdote', img:'images/placeholder-character.png', title:'Le Fantôme de Lavanville', summary:'Une légende urbaine effrayante.', badges:['Anecdote','Kanto','Fantôme'], meta:'Pokémon Rouge/Bleu', text:`Certains joueurs affirment avoir vu un fantôme d’enfant dans la Tour Pokémon de Lavanville.`},
+    {cat:'anecdote', img:'images/placeholder-character.png', title:'Le Truck de Carmin sur Mer', summary:'Un mystère de la première génération.', badges:['Anecdote','Kanto','Mystère'], meta:'Pokémon Rouge/Bleu', text:`Une rumeur prétendait qu’un camion cachait Mew près du S.S. Anne, mais ce n’était qu’un mythe.`},
+    {cat:'anecdote', img:'images/placeholder-character.png', title:'MissingNo, le Pokémon Bug', summary:'Le glitch le plus célèbre.', badges:['Anecdote','Bug','Kanto'], meta:'Pokémon Rouge/Bleu', text:`MissingNo est un bug de la première génération qui a marqué toute une génération de joueurs.`},
+    {cat:'anecdote', img:'images/placeholder-character.png', title:'La Musique de Lavanville', summary:'Une mélodie qui a marqué les esprits.', badges:['Anecdote','Kanto','Musique'], meta:'Pokémon Rouge/Bleu', text:`La musique de Lavanville est célèbre pour son ambiance étrange et ses légendes urbaines.`},
+    // ... (ajoutez encore plus d’histoires si besoin)
+  ];
+
+  // Timeline chronologique (exemple)
+  const loreTimeline = [
+    {title:'Création de l’Univers', text:'Arceus naît du néant, puis façonne Dialga, Palkia, Giratina et le monde.'},
+    {title:'Apparition de Mew', text:'Mew peuple le monde de sa descendance, ancêtre de tous les Pokémon.'},
+    {title:'Séparation des Régions', text:'Les continents se divisent, chaque région développe ses propres mythes.'},
+    {title:'Ère des Légendaires', text:'Ho-Oh, Lugia, Rayquaza, Kyogre, Groudon, Regigigas et d’autres protègent l’équilibre.'},
+    {title:'Premiers Humains', text:'Les humains rencontrent les Pokémon, fondent des civilisations et des légendes naissent.'},
+    {title:'Guerre de Kalos', text:'Un conflit dévastateur oppose humains et Pokémon, menant à l’utilisation de l’Arme Suprême.'},
+    {title:'Époque Moderne', text:'Les Ligues Pokémon, Champions, Teams et héros écrivent la suite de l’histoire.'}
+  ];
+
+  // Génération de la timeline
+  function renderTimeline() {
+    const timeline = document.getElementById('loreTimeline');
+    timeline.innerHTML = '';
+    loreTimeline.forEach(ev => {
+      const el = document.createElement('div');
+      el.className = 'lore-timeline-event';
+      el.innerHTML = `<div class='lore-timeline-dot'></div><div class='lore-timeline-content'><h3>${ev.title}</h3><p>${ev.text}</p></div>`;
+      timeline.appendChild(el);
+    });
+  }
+
+  // Génération des cartes selon catégorie
+  function renderLoreGrid(cat = 'all') {
+    const grid = document.getElementById('loreGrid');
+    grid.innerHTML = '';
+    loreStories.filter(story => cat === 'all' || story.cat === cat).forEach(story => {
+      const card = document.createElement('div');
+      card.className = 'lore-card';
+      card.innerHTML = `
+        <img src="${story.img}" alt="${story.title}" class="lore-card-img">
+        <div class="lore-card-title">${story.title}</div>
+        <div class="lore-card-summary">${story.summary}</div>
+        <div class="lore-card-badges">${story.badges.map(b=>`<span class='lore-badge'>${b}</span>`).join('')}</div>
+        <div class="lore-card-meta">${story.meta}</div>
+      `;
+      card.onclick = function() {
+        document.getElementById('loreModal').style.display = 'flex';
+        document.getElementById('loreModalDetails').innerHTML = `
+          <img src="${story.img}" alt="${story.title}" style="width:120px;height:120px;object-fit:contain;border-radius:18px;box-shadow:0 2px 16px #ffd70055;margin-bottom:18px;">
+          <h2 style="color:#FFD700;font-family:'Press Start 2P',monospace;font-size:1.5rem;">${story.title}</h2>
+          <div style="color:#415A77;font-weight:600;margin-bottom:8px;">${story.summary}</div>
+          <div style="color:#222;font-size:1.08rem;margin-bottom:12px;">${story.text}</div>
+          <div style="margin-bottom:10px;">${story.badges.map(b=>`<span class='lore-badge'>${b}</span>`).join('')}</div>
+          <div style="color:#888;font-size:0.98rem;">${story.meta}</div>
+        `;
+      };
+      grid.appendChild(card);
+    });
+  }
+
+  // Navigation catégories
+  document.addEventListener('DOMContentLoaded', function() {
+    renderTimeline();
+    renderLoreGrid();
+    document.querySelectorAll('.lore-cat-btn').forEach(btn => {
+      btn.onclick = function() {
+        document.querySelectorAll('.lore-cat-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        renderLoreGrid(btn.dataset.cat);
+      };
+    });
+    // Modale
+    document.querySelector('.close-lore-modal').onclick = function() {
+      document.getElementById('loreModal').style.display = 'none';
+    };
+    document.getElementById('loreModal').onclick = function(e) {
+      if (e.target === this) document.getElementById('loreModal').style.display = 'none';
+    };
+  });
+  </script>
+</body>
+</html>

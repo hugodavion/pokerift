@@ -1,0 +1,50 @@
+/* Styles prioritaires pour les titres - Police Press Start 2P */
+
+/* Titres h1 dans le header - Priorité absolue */
+header.header h1,
+.header h1,
+.header > h1,
+body .header h1,
+html body .header h1 {
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 4.5rem !important;
+    font-weight: 900 !important;
+    color: #FFD700 !important;
+    text-shadow: 
+        0 0 20px rgba(255,215,0,1),
+        0 0 40px rgba(255,215,0,0.8),
+        2px 2px 0px #000,
+        -2px -2px 0px #000,
+        2px -2px 0px #000,
+        -2px 2px 0px #000,
+        4px 4px 8px rgba(0,0,0,0.8) !important;
+    animation: titleGlow 3s ease-in-out infinite !important;
+    letter-spacing: 2px !important;
+    filter: none !important;
+    background: none !important;
+    background-image: none !important;
+    background-clip: unset !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: #FFD700 !important;
+}
+
+/* Responsivité pour les petits écrans */
+@media (max-width: 768px) {
+    header.header h1,
+    .header h1,
+    .header > h1,
+    body .header h1,
+    html body .header h1 {
+        font-size: 2.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    header.header h1,
+    .header h1,
+    .header > h1,
+    body .header h1,
+    html body .header h1 {
+        font-size: 2rem !important;
+    }
+}

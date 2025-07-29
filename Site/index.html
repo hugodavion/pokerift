@@ -1,0 +1,252 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Rift - Votre Portail Pokémon</title>
+    <meta name="description" content="PokeRift - Le site ultime pour les fans de Pokémon avec Pokédex interactif, guide des régions et Hoopa comme mascotte !">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pokedex.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/title-override.css">
+    <link rel="stylesheet" href="css/modern-improvements.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>P</text></svg>">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <!-- Bouton menu mobile -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Particules flottantes pour l'ambiance -->
+    <div class="floating-particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-video">
+            <video autoplay loop muted>
+                <source src="videos/header-video.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la vidéo HTML5.
+            </video>
+        </div>
+        <h1>Bienvenue sur Pokémon Rift</h1>
+    </header>
+
+    <!-- Barre Latérale -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="images/hoopa.png" alt="Pokémon Rift Logo" class="logo">
+            <div class="sidebar-title">PokeRift</div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html" class="active"><img src="images/center.png" alt="Accueil"> <span>Accueil</span></a></li>
+                <li><a href="pokedex.html"><img src="images/pokedex.png" alt="Pokédex"> <span>Pokédex</span></a></li>
+                <li><a href="regions.html"><img src="images/map.png" alt="Régions"> <span>Régions</span></a></li>
+                <li><a href="personnages.html"><img src="images/red.jpg" alt="Personnages"> <span>Personnages</span></a></li>
+                <li><a href="lore.html"><img src="images/center.png" alt="Lore"> <span>Lore</span></a></li>
+                <li><a href="emulation.html"><img src="images/pokedex.png" alt="Emulation"> <span>Émulation</span></a></li>
+                <li><a href="mini-jeux.html"><img src="images/center.png" alt="Mini-jeux"> <span>Mini-jeux</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Contenu Principal -->
+    <main class="content">
+
+        <!-- Section Patch Notes -->
+        <section id="patch-notes">
+            <h2>Actualités Pokémon</h2>
+            <div class="carousel">
+                <div class="carousel-item">
+                    <h3>Pokémon Legends Z-A</h3>
+                    <p>Retour à Kalos avec des mécaniques révolutionnaires</p>
+                </div>
+                <div class="carousel-item">
+                    <h3>Pokémon GO - Mise à jour</h3>
+                    <p>Nouveaux événements communautaires et Méga-Évolutions</p>
+                </div>
+                <div class="carousel-item">
+                    <h3>Pokémon Sleep</h3>
+                    <p>Nouvelles fonctionnalités de suivi du sommeil</p>
+                </div>
+            </div>
+            <button class="prev">←</button>
+            <button class="next">→</button>
+        </section>
+
+        <!-- Section Vidéos -->
+        <section id="videos">
+            <h2>Créateurs Français #PokemonFR</h2>
+            <div class="video-gallery">
+            
+                </div>
+          
+        </section>
+
+        <!-- Section Articles -->
+        <section id="articles">
+            <h2>Prochains Jeux Pokémon</h2>
+            <div class="articles-grid">
+                <article class="blog-post modern-card">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=400&h=250&fit=crop" alt="Pokémon Legends Z-A" loading="lazy">
+                        <div class="article-overlay">
+                            <span class="article-category">Jeux</span>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <h3>Pokémon Legends Z-A</h3>
+                        <p class="article-date">Sortie prévue 2025</p>
+                        <p>Le retour à Kalos avec des mécaniques révolutionnaires dans Pokémon Legends Z-A. Découvrez une nouvelle façon d'explorer l'univers Pokémon avec des graphismes repensés et une narration immersive.</p>
+                        <a href="#" class="read-more-btn">En savoir plus</a>
+                    </div>
+                </article>
+                
+                <article class="blog-post modern-card">
+                    <div class="article-image">
+                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=250&fit=crop" alt="Pokémon DLC" loading="lazy">
+                        <div class="article-overlay">
+                            <span class="article-category">DLC</span>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <h3>Pokémon Scarlet & Violet DLC</h3>
+                        <p class="article-date">Disponible maintenant</p>
+                        <p>Les DLC "The Teal Mask" et "The Indigo Disk" apportent de nouvelles régions à explorer et des Pokémon inédits à capturer dans l'univers de Paldea.</p>
+                        <a href="#" class="read-more-btn">En savoir plus</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Détails Pokémon -->
+    <div id="pokemon-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-pokemon-details">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Pokémon Rift - Site de fans</p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+<script>
+// --- Recherche rapide : ouverture modale détails Pokémon ---
+document.addEventListener('DOMContentLoaded', function() {
+  // Délégation sur les résultats de recherche
+  document.getElementById('search-results')?.addEventListener('click', function(e) {
+    let target = e.target;
+    // Cherche un élément avec data-pokemon-id ou une classe spécifique
+    while (target && !target.dataset.pokemonId && !target.classList.contains('search-result')) {
+      target = target.parentElement;
+    }
+    if (target && (target.dataset.pokemonId || target.classList.contains('search-result'))) {
+      e.preventDefault();
+      // Récupère l'ID ou le nom du Pokémon
+      const pokeId = target.dataset.pokemonId || target.getAttribute('data-id') || target.textContent.trim();
+      // Appelle la fonction d'ouverture de modale (doit exister dans scripts.js)
+      if (window.openPokemonModal) {
+        window.openPokemonModal(pokeId);
+      } else {
+        // Fallback : affiche l'ID/nom dans la modale
+        const modal = document.getElementById('pokemon-modal');
+        const details = document.getElementById('modal-pokemon-details');
+        if (details) details.innerHTML = '<h2>Détails du Pokémon</h2><p>' + pokeId + '</p>';
+        if (modal) modal.style.display = 'block';
+      }
+    }
+  });
+  // Fermer la modale au clic sur la croix
+  document.querySelectorAll('.close-modal').forEach(btn => {
+    btn.onclick = function() {
+      document.getElementById('pokemon-modal').style.display = 'none';
+    };
+  });
+  // Fermer la modale au clic en dehors
+  window.onclick = function(event) {
+    const modal = document.getElementById('pokemon-modal');
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  };
+});
+</script>
+    <script>
+        // Animation des particules flottantes
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 6 + 's';
+                    particle.style.animationDuration = (6 + Math.random() * 4) + 's';
+                    particlesContainer.appendChild(particle);
+                    
+                    // Supprimer la particule après l'animation
+                    setTimeout(() => {
+                        if (particle.parentNode) {
+                            particle.parentNode.removeChild(particle);
+                        }
+                    }, 10000);
+                }, i * 400);
+            }
+        }
+        
+        // Animation des statistiques (compteur)
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent.replace(/\D/g, ''));
+                const increment = target / 50;
+                let current = 0;
+                
+                const updateStat = () => {
+                    if (current < target) {
+                        current += increment;
+                        stat.textContent = Math.floor(current) + (stat.textContent.includes('+') ? '+' : '');
+                        requestAnimationFrame(updateStat);
+                    } else {
+                        stat.textContent = stat.textContent; // Garder le texte original
+                    }
+                };
+                
+                // Observer pour déclencher l'animation quand visible
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateStat();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+                
+                observer.observe(stat);
+            });
+        }
+        
+        // Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            animateStats();
+            
+            // Recréer les particules périodiquement
+            setInterval(createParticles, 8000);
+        });
+    </script>
+</body>
+</html>

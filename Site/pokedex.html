@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex - Pokémon Rift</title>
+    <meta name="description" content="Pokédex interactif complet avec recherche, filtres et détails de tous les Pokémon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pokedex.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/title-override.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>P</text></svg>">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <!-- Bouton menu mobile -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-video">
+            <video autoplay loop muted>
+                <source src="videos/header-video.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la vidéo HTML5.
+            </video>
+        </div>
+        <h1>Pokédex Interactif</h1>
+    </header>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="images/hoopa.png" alt="Pokémon Rift Logo" class="logo">
+            <div class="sidebar-title">PokeRift</div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html"><img src="images/center.png" alt="Accueil"> <span>Accueil</span></a></li>
+                <li><a href="pokedex.html" class="active"><img src="images/pokedex.png" alt="Pokédex"> <span>Pokédex</span></a></li>
+                <li><a href="regions.html"><img src="images/map.png" alt="Régions"> <span>Régions</span></a></li>
+                <li><a href="personnages.html"><img src="images/red.jpg" alt="Personnages"> <span>Personnages</span></a></li>
+                <li><a href="lore.html"><img src="images/center.png" alt="Lore"> <span>Lore</span></a></li>
+                <li><a href="emulation.html"><img src="images/pokedex.png" alt="Emulation"> <span>Émulation</span></a></li>
+                <li><a href="mini-jeux.html"><img src="images/center.png" alt="Mini-jeux"> <span>Mini-jeux</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Contenu Principal -->
+    <main class="content">
+        <!-- Section Contrôles -->
+        <section id="pokedex-controls" class="pokedex-controls">
+            <!-- Recherche -->
+            <div class="search-section">
+                <input type="text" id="pokedex-search" placeholder="Rechercher par nom ou numéro...">
+                <button id="search-pokemon-btn">Rechercher</button>
+                <button id="random-pokemon-btn">Pokémon Aléatoire</button>
+            </div>
+
+            <!-- Filtres -->
+            <div class="filters-section">
+                <select id="generation-filter">
+                    <option value="">Toutes les générations</option>
+                    <option value="1">Génération 1 (Kanto)</option>
+                    <option value="2">Génération 2 (Johto)</option>
+                    <option value="3">Génération 3 (Hoenn)</option>
+                    <option value="4">Génération 4 (Sinnoh)</option>
+                    <option value="5">Génération 5 (Unys)</option>
+                    <option value="6">Génération 6 (Kalos)</option>
+                    <option value="7">Génération 7 (Alola)</option>
+                    <option value="8">Génération 8 (Galar)</option>
+                    <option value="9">Génération 9 (Paldea)</option>
+                </select>
+
+                <select id="type-filter">
+                    <option value="">Tous les types</option>
+                    <option value="normal">Normal</option>
+                    <option value="fire">Feu</option>
+                    <option value="water">Eau</option>
+                    <option value="electric">Électrik</option>
+                    <option value="grass">Plante</option>
+                    <option value="ice">Glace</option>
+                    <option value="fighting">Combat</option>
+                    <option value="poison">Poison</option>
+                    <option value="ground">Sol</option>
+                    <option value="flying">Vol</option>
+                    <option value="psychic">Psy</option>
+                    <option value="bug">Insecte</option>
+                    <option value="rock">Roche</option>
+                    <option value="ghost">Spectre</option>
+                    <option value="dragon">Dragon</option>
+                    <option value="dark">Ténèbres</option>
+                    <option value="steel">Acier</option>
+                    <option value="fairy">Fée</option>
+                </select>
+
+                <button id="clear-filters-btn">Effacer</button>
+            </div>
+        </section>
+
+        <!-- Section Résultats -->
+        <section id="pokedex-results" class="pokedex-results">
+            <!-- Grille des Pokémon -->
+            <div id="pokemon-grid" class="pokemon-grid"></div>
+        </section>
+    </main>
+
+    <!-- Modal Détails Pokémon -->
+    <div id="pokemon-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-pokemon-details">
+                <!-- Le contenu sera généré dynamiquement -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Pokémon Rift - Données fournies par <a href="https://pokeapi.co" target="_blank">PokéAPI</a></p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+    <script src="js/pokedex.js"></script>
+</body>
+</html>

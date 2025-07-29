@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Régions Pokémon - Pokémon Rift</title>
+    <meta name="description" content="Explorez toutes les régions de l'univers Pokémon de Kanto à Paldea">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/title-override.css">
+    <link rel="stylesheet" href="css/modern-improvements.css">
+    <link rel="stylesheet" href="css/regions.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>P</text></svg>">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <!-- Bouton menu mobile -->
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-video">
+            <video autoplay loop muted>
+                <source src="videos/header-video.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la vidéo HTML5.
+            </video>
+        </div>
+        <h1>Régions Pokémon</h1>
+    </header>
+
+    <!-- Barre Latérale -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="images/hoopa.png" alt="Pokémon Rift Logo" class="logo">
+            <div class="sidebar-title">PokeRift</div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html"><img src="images/center.png" alt="Accueil"> <span>Accueil</span></a></li>
+                <li><a href="pokedex.html"><img src="images/pokedex.png" alt="Pokédex"> <span>Pokédex</span></a></li>
+                <li><a href="regions.html" class="active"><img src="images/map.png" alt="Régions"> <span>Régions</span></a></li>
+                <li><a href="personnages.html"><img src="images/red.jpg" alt="Personnages"> <span>Personnages</span></a></li>
+                <li><a href="lore.html"><img src="images/center.png" alt="Lore"> <span>Lore</span></a></li>
+                <li><a href="emulation.html"><img src="images/pokedex.png" alt="Emulation"> <span>Émulation</span></a></li>
+                <li><a href="mini-jeux.html"><img src="images/center.png" alt="Mini-jeux"> <span>Mini-jeux</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Contenu Principal -->
+    <main class="content">
+        <!-- Section Navigation Rapide -->
+        <section id="region-navigation" class="region-navigation">
+            <h2>Explorez les Régions Pokémon</h2>
+            <p>Découvrez les 9 régions principales de l'univers Pokémon, chacune avec ses spécificités et ses Pokémon uniques.</p>
+            <div class="region-nav-buttons">
+                <button class="nav-btn modern-card" onclick="scrollToRegion('kanto')" data-region="kanto">Kanto</button>
+                <button class="nav-btn modern-card" onclick="scrollToRegion('johto')" data-region="johto">Johto</button>
+                <button class="nav-btn modern-card" onclick="scrollToRegion('hoenn')" data-region="hoenn">Hoenn</button>
+                <button class="nav-btn modern-card" onclick="scrollToRegion('sinnoh')" data-region="sinnoh">Sinnoh</button>
+                <button class="nav-btn modern-card" onclick="scrollToRegion('unys')" data-region="unys">Unys</button>
+                <button class="nav-btn modern-card" onclick="scrollToRegion('kalos')" data-region="kalos">Kalos</button>
+                <button class="nav-btn modern-card" onclick="scrollToRegion('alola')" data-region="alola">Alola</button>
+                <button class="nav-btn modern-card" onclick="scrollToRegion('galar')" data-region="galar">Galar</button>
+                <button class="nav-btn modern-card" onclick="scrollToRegion('paldea')" data-region="paldea">Paldea</button>
+            </div>
+        </section>
+
+        <!-- Régions -->
+        <div class="regions-container">
+            <!-- Kanto -->
+            <section id="kanto" class="region-section">
+                <div class="region-card modern-card">
+                    <div class="region-header">
+                        <div class="region-image">
+                            <img src="images/kanto-region.svg" alt="Kanto" loading="lazy">
+                            <div class="region-overlay">
+                                <h2>Kanto</h2>
+                                <span class="generation">Génération I</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="region-content">
+                        <div class="region-info">
+                            <h3>La région d'origine</h3>
+                            <p>Kanto est la première région de l'univers Pokémon, inspirée de la région du Kansai au Japon. C'est ici que tout a commencé avec les légendaires Pokémon Rouge et Bleu, posant les bases de l'aventure Pokémon.</p>
+                            
+                            <div class="region-details">
+                                <div class="detail-grid">
+                                    <div class="detail-item">
+                                        <span class="detail-icon">🎮</span>
+                                        <div>
+                                            <strong>Jeux principaux</strong>
+                                            <p>Rouge, Bleu, Jaune, Rouge Feu, Feuille Verte</p>
+                                        </div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-icon">📍</span>
+                                        <div>
+                                            <strong>Inspiration</strong>
+                                            <p>Région du Kansai, Japon</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="region-stats">
+                                <div class="stat modern-card">
+                                    <div class="stat-number">151</div>
+                                    <div class="stat-label">Pokémon</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">8</div>
+                                    <div class="stat-label">Arènes</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">5</div>
+                                    <div class="stat-label">Légendaires</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">4</div>
+                                    <div class="stat-label">Îles Sevii</div>
+                                </div>
+                            </div>
+
+                            <div class="legendary-pokemon">
+                                <h4>Pokémon Légendaires</h4>
+                                <div class="legendary-grid">
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Artikodin</span>
+                                        <span class="legendary-type">Glace/Vol</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Électhor</span>
+                                        <span class="legendary-type">Électrik/Vol</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Sulfura</span>
+                                        <span class="legendary-type">Feu/Vol</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Mewtwo</span>
+                                        <span class="legendary-type">Psy</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Mew</span>
+                                        <span class="legendary-type">Psy</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Johto -->
+            <section id="johto" class="region-section">
+                <div class="region-card modern-card">
+                    <div class="region-header">
+                        <div class="region-image">
+                            <img src="images/johto-region.svg" alt="Johto" loading="lazy">
+                            <div class="region-overlay">
+                                <h2>Johto</h2>
+                                <span class="generation">Génération II</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="region-content">
+                        <div class="region-info">
+                            <h3>La région du renouveau</h3>
+                            <p>Johto a introduit 100 nouveaux Pokémon, le système jour/nuit, et les mécaniques d'élevage. Cette région mystique est riche en traditions et légendes anciennes.</p>
+                            
+                            <div class="region-details">
+                                <div class="detail-grid">
+                                    <div class="detail-item">
+                                        <span class="detail-icon">🎮</span>
+                                        <div>
+                                            <strong>Jeux principaux</strong>
+                                            <p>Or, Argent, Cristal, Or HeartGold, Argent SoulSilver</p>
+                                        </div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-icon">🌙</span>
+                                        <div>
+                                            <strong>Innovation</strong>
+                                            <p>Système jour/nuit, élevage Pokémon</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="region-stats">
+                                <div class="stat modern-card">
+                                    <div class="stat-number">100</div>
+                                    <div class="stat-label">Nouveaux Pokémon</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">16</div>
+                                    <div class="stat-label">Arènes</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">6</div>
+                                    <div class="stat-label">Légendaires</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">2</div>
+                                    <div class="stat-label">Régions</div>
+                                </div>
+                            </div>
+
+                            <div class="legendary-pokemon">
+                                <h4>Pokémon Légendaires</h4>
+                                <div class="legendary-grid">
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Raikou</span>
+                                        <span class="legendary-type">Électrik</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Entei</span>
+                                        <span class="legendary-type">Feu</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Suicune</span>
+                                        <span class="legendary-type">Eau</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Lugia</span>
+                                        <span class="legendary-type">Psy/Vol</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Ho-Oh</span>
+                                        <span class="legendary-type">Feu/Vol</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Celebi</span>
+                                        <span class="legendary-type">Psy/Plante</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hoenn -->
+            <section id="hoenn" class="region-section">
+                <div class="region-card modern-card">
+                    <div class="region-header">
+                        <div class="region-image">
+                            <img src="images/hoenn-region.svg" alt="Hoenn" loading="lazy">
+                            <div class="region-overlay">
+                                <h2>Hoenn</h2>
+                                <span class="generation">Génération III</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="region-content">
+                        <div class="region-info">
+                            <h3>La région tropicale</h3>
+                            <p>Hoenn est une région tropicale dominée par l'eau, introduisant les talents Pokémon, les concours et les bases secrètes. Elle est connue pour ses îles et ses vastes océans.</p>
+                            
+                            <div class="region-details">
+                                <div class="detail-grid">
+                                    <div class="detail-item">
+                                        <span class="detail-icon">🎮</span>
+                                        <div>
+                                            <strong>Jeux principaux</strong>
+                                            <p>Rubis, Saphir, Émeraude, Rubis Oméga, Saphir Alpha</p>
+                                        </div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-icon">🌊</span>
+                                        <div>
+                                            <strong>Caractéristique</strong>
+                                            <p>Région tropicale avec de nombreuses îles</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="region-stats">
+                                <div class="stat modern-card">
+                                    <div class="stat-number">135</div>
+                                    <div class="stat-label">Nouveaux Pokémon</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">8</div>
+                                    <div class="stat-label">Arènes</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">10</div>
+                                    <div class="stat-label">Légendaires</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">6</div>
+                                    <div class="stat-label">Routes marines</div>
+                                </div>
+                            </div>
+
+                            <div class="legendary-pokemon">
+                                <h4>Pokémon Légendaires</h4>
+                                <div class="legendary-grid">
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Kyogre</span>
+                                        <span class="legendary-type">Eau</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Groudon</span>
+                                        <span class="legendary-type">Sol</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Rayquaza</span>
+                                        <span class="legendary-type">Dragon/Vol</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Latios</span>
+                                        <span class="legendary-type">Dragon/Psy</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Latias</span>
+                                        <span class="legendary-type">Dragon/Psy</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Jirachi</span>
+                                        <span class="legendary-type">Acier/Psy</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sinnoh -->
+            <section id="sinnoh" class="region-section">
+                <div class="region-card modern-card">
+                    <div class="region-header">
+                        <div class="region-image">
+                            <img src="images/sinnoh-region.svg" alt="Sinnoh" loading="lazy">
+                            <div class="region-overlay">
+                                <h2>Sinnoh</h2>
+                                <span class="generation">Génération IV</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="region-content">
+                        <div class="region-info">
+                            <h3>La région mythologique</h3>
+                            <p>Sinnoh est riche en mythologie, introduisant les dimensions parallèles et la création de l'univers Pokémon. Cette région froide et montagneuse regorge de légendes anciennes.</p>
+                            
+                            <div class="region-stats">
+                                <div class="stat modern-card">
+                                    <div class="stat-number">107</div>
+                                    <div class="stat-label">Nouveaux Pokémon</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">8</div>
+                                    <div class="stat-label">Arènes</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">14</div>
+                                    <div class="stat-label">Légendaires</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">3</div>
+                                    <div class="stat-label">Lacs</div>
+                                </div>
+                            </div>
+            <div class="legendary-pokemon">
+                <h4>Pokémon Légendaires</h4>
+                <div class="legendary-grid">
+                    <div class="legendary-item"><span class="legendary-name">Dialga</span><span class="legendary-type">Acier/Dragon</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Palkia</span><span class="legendary-type">Eau/Dragon</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Giratina</span><span class="legendary-type">Spectre/Dragon</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Arceus</span><span class="legendary-type">Normal</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Créhelf</span><span class="legendary-type">Psy</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Créfollet</span><span class="legendary-type">Psy</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Créfadet</span><span class="legendary-type">Psy</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Heatran</span><span class="legendary-type">Feu/Acier</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Regigigas</span><span class="legendary-type">Normal</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Cresselia</span><span class="legendary-type">Psy</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Phione</span><span class="legendary-type">Eau</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Manaphy</span><span class="legendary-type">Eau</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Darkrai</span><span class="legendary-type">Ténèbres</span></div>
+                </div>
+            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Les autres régions suivront le même format... -->
+            <section id="unys" class="region-section">
+                <div class="region-card modern-card">
+                    <div class="region-header">
+                        <div class="region-image">
+                            <img src="images/unys-region.svg" alt="Unys" loading="lazy">
+                            <div class="region-overlay">
+                                <h2>Unys</h2>
+                                <span class="generation">Génération V</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="region-content">
+                        <div class="region-info">
+                            <h3>La région urbaine</h3>
+                            <p>Unys, inspirée de New York, est la première région située en dehors du Japon. Elle introduit 156 nouveaux Pokémon et un système de saisons dynamiques.</p>
+                            
+                            <div class="region-stats">
+                                <div class="stat modern-card">
+                                    <div class="stat-number">156</div>
+                                    <div class="stat-label">Nouveaux Pokémon</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">8</div>
+                                    <div class="stat-label">Arènes</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">13</div>
+                                    <div class="stat-label">Légendaires</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">4</div>
+                                    <div class="stat-label">Saisons</div>
+                                </div>
+                            </div>
+            <div class="legendary-pokemon">
+                <h4>Pokémon Légendaires</h4>
+                <div class="legendary-grid">
+                    <div class="legendary-item"><span class="legendary-name">Reshiram</span><span class="legendary-type">Dragon/Feu</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Zekrom</span><span class="legendary-type">Dragon/Électrik</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Kyurem</span><span class="legendary-type">Dragon/Glace</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Cobaltium</span><span class="legendary-type">Acier/Combat</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Terrakium</span><span class="legendary-type">Roche/Combat</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Viridium</span><span class="legendary-type">Plante/Combat</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Boréas</span><span class="legendary-type">Vol</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Fulguris</span><span class="legendary-type">Électrik/Vol</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Démétéros</span><span class="legendary-type">Sol/Vol</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Keldeo</span><span class="legendary-type">Eau/Combat</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Meloetta</span><span class="legendary-type">Normal/Psy</span></div>
+                    <div class="legendary-item"><span class="legendary-name">Genesect</span><span class="legendary-type">Insecte/Acier</span></div>
+                </div>
+            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Kalos -->
+            <section id="kalos" class="region-section">
+                <div class="region-card modern-card">
+                    <div class="region-header">
+                        <div class="region-image">
+                            <img src="images/kalos-region.svg" alt="Kalos" loading="lazy">
+                            <div class="region-overlay">
+                                <h2>Kalos</h2>
+                                <span class="generation">Génération VI</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="region-content">
+                        <div class="region-info">
+                            <h3>La région de l'élégance</h3>
+                            <p>Kalos, inspirée de la France, introduit le type Fée et les Méga-Évolutions. Cette région est célèbre pour sa beauté, sa mode et sa culture raffinée.</p>
+                            
+                            <div class="region-details">
+                                <div class="detail-grid">
+                                    <div class="detail-item">
+                                        <span class="detail-icon">🎮</span>
+                                        <div>
+                                            <strong>Jeux principaux</strong>
+                                            <p>X, Y</p>
+                                        </div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-icon">✨</span>
+                                        <div>
+                                            <strong>Innovation</strong>
+                                            <p>Type Fée, Méga-Évolutions, personnalisation</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="region-stats">
+                                <div class="stat modern-card">
+                                    <div class="stat-number">72</div>
+                                    <div class="stat-label">Nouveaux Pokémon</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">8</div>
+                                    <div class="stat-label">Arènes</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">6</div>
+                                    <div class="stat-label">Légendaires</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">46</div>
+                                    <div class="stat-label">Méga-Évolutions</div>
+                                </div>
+                            </div>
+
+                            <div class="legendary-pokemon">
+                                <h4>Pokémon Légendaires</h4>
+                                <div class="legendary-grid">
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Xerneas</span>
+                                        <span class="legendary-type">Fée</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Yveltal</span>
+                                        <span class="legendary-type">Ténèbres/Vol</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Zygarde</span>
+                                        <span class="legendary-type">Dragon/Sol</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Diancie</span>
+                                        <span class="legendary-type">Roche/Fée</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Hoopa</span>
+                                        <span class="legendary-type">Psy/Spectre</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Volcanion</span>
+                                        <span class="legendary-type">Feu/Eau</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Alola -->
+            <section id="alola" class="region-section">
+                <div class="region-card modern-card">
+                    <div class="region-header">
+                        <div class="region-image">
+                            <img src="images/alola-region.svg" alt="Alola" loading="lazy">
+                            <div class="region-overlay">
+                                <h2>Alola</h2>
+                                <span class="generation">Génération VII</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="region-content">
+                        <div class="region-info">
+                            <h3>Le paradis tropical</h3>
+                            <p>Alola, inspirée d'Hawaï, révolutionne les traditions avec les Épreuves des Capitaines et introduit les formes régionales. Quatre îles paradisiaques à explorer.</p>
+                            
+                            <div class="region-details">
+                                <div class="detail-grid">
+                                    <div class="detail-item">
+                                        <span class="detail-icon">🎮</span>
+                                        <div>
+                                            <strong>Jeux principaux</strong>
+                                            <p>Soleil, Lune, Ultra-Soleil, Ultra-Lune</p>
+                                        </div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-icon">🏝️</span>
+                                        <div>
+                                            <strong>Particularité</strong>
+                                            <p>4 îles, Capitaines d'épreuve, Cristaux Z</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="region-stats">
+                                <div class="stat modern-card">
+                                    <div class="stat-number">81</div>
+                                    <div class="stat-label">Nouveaux Pokémon</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">7</div>
+                                    <div class="stat-label">Capitaines</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">11</div>
+                                    <div class="stat-label">Légendaires</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">4</div>
+                                    <div class="stat-label">Îles</div>
+                                </div>
+                            </div>
+
+                            <div class="legendary-pokemon">
+                                <h4>Pokémon Légendaires</h4>
+                                <div class="legendary-grid">
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Solgaleo</span>
+                                        <span class="legendary-type">Psy/Acier</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Lunala</span>
+                                        <span class="legendary-type">Psy/Spectre</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Necrozma</span>
+                                        <span class="legendary-type">Psy</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Tokorico</span>
+                                        <span class="legendary-type">Électrik/Fée</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Tokopipi</span>
+                                        <span class="legendary-type">Psy/Fée</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Magearna</span>
+                                        <span class="legendary-type">Acier/Fée</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Galar -->
+            <section id="galar" class="region-section">
+                <div class="region-card modern-card">
+                    <div class="region-header">
+                        <div class="region-image">
+                            <img src="images/galar-region.svg" alt="Galar" loading="lazy">
+                            <div class="region-overlay">
+                                <h2>Galar</h2>
+                                <span class="generation">Génération VIII</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="region-content">
+                        <div class="region-info">
+                            <h3>Les terres sauvages</h3>
+                            <p>Galar, inspirée du Royaume-Uni, introduit le phénomène Dynamax et les vastes Terres Sauvages. Une région moderne axée sur les combats spectaculaires.</p>
+                            
+                            <div class="region-details">
+                                <div class="detail-grid">
+                                    <div class="detail-item">
+                                        <span class="detail-icon">🎮</span>
+                                        <div>
+                                            <strong>Jeux principaux</strong>
+                                            <p>Épée, Bouclier</p>
+                                        </div>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-icon">⚡</span>
+                                        <div>
+                                            <strong>Innovation</strong>
+                                            <p>Dynamax, Gigamax, Terres Sauvages</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="region-stats">
+                                <div class="stat modern-card">
+                                    <div class="stat-number">89</div>
+                                    <div class="stat-label">Nouveaux Pokémon</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">8</div>
+                                    <div class="stat-label">Arènes</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">11</div>
+                                    <div class="stat-label">Légendaires</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">32</div>
+                                    <div class="stat-label">Formes Gigamax</div>
+                                </div>
+                            </div>
+
+                            <div class="legendary-pokemon">
+                                <h4>Pokémon Légendaires</h4>
+                                <div class="legendary-grid">
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Zacian</span>
+                                        <span class="legendary-type">Fée/Acier</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Zamazenta</span>
+                                        <span class="legendary-type">Combat/Acier</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Eternatus</span>
+                                        <span class="legendary-type">Poison/Dragon</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Kubfu</span>
+                                        <span class="legendary-type">Combat</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Urshifu</span>
+                                        <span class="legendary-type">Combat/Ténèbres</span>
+                                    </div>
+                                    <div class="legendary-item">
+                                        <span class="legendary-name">Calyrex</span>
+                                        <span class="legendary-type">Psy/Plante</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Paldea - La région la plus récente -->
+            <section id="paldea" class="region-section">
+                <div class="region-card modern-card">
+                    <div class="region-header">
+                        <div class="region-image">
+                            <img src="images/paldea-region.svg" alt="Paldea" loading="lazy">
+                            <div class="region-overlay">
+                                <h2>Paldea</h2>
+                                <span class="generation">Génération IX</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="region-content">
+                        <div class="region-info">
+                            <h3>La région de l'exploration libre</h3>
+                            <p>Paldea révolutionne l'expérience Pokémon avec son monde entièrement ouvert. Inspirée de la péninsule ibérique, elle introduit les formes de Paldea et les Pokémon Téracristal.</p>
+                            
+                            <div class="region-stats">
+                                <div class="stat modern-card">
+                                    <div class="stat-number">103</div>
+                                    <div class="stat-label">Nouveaux Pokémon</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">8</div>
+                                    <div class="stat-label">Champions d'arène</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">6</div>
+                                    <div class="stat-label">Légendaires</div>
+                                </div>
+                                <div class="stat modern-card">
+                                    <div class="stat-number">18</div>
+                                    <div class="stat-label">Types Téracristal</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+                       
+
+    <!-- Footer -->
+    <!-- Modal Détails Pokémon (pour affichage local sans redirection) -->
+    <div id="pokemon-modal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <span class="close-modal" style="cursor:pointer;font-size:2rem;position:absolute;top:10px;right:18px;">&times;</span>
+        <div id="modal-pokemon-details"></div>
+      </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Pokémon Rift - Explorez toutes les régions Pokémon</p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+    <script src="js/regions.js"></script>
+    <script src="js/regions-enhanced.js"></script>
+</script>
+<style>
+  .legendary-popup {
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(30, 34, 54, 0.98);
+    border: 2px solid #FFD700;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    padding: 32px 28px 24px 28px;
+    min-width: 260px;
+    max-width: 90vw;
+    color: #fff;
+    font-family: 'Poppins', Arial, sans-serif;
+    animation: popupIn 0.25s cubic-bezier(.4,2,.6,1) both;
+  }
+  .legendary-popup h3 {
+    margin-top: 0;
+    font-size: 2rem;
+    color: #FFD700;
+    font-family: 'Press Start 2P', monospace;
+    margin-bottom: 10px;
+  }
+  .legendary-popup .legendary-type {
+    display: inline-block;
+    background: #FFD70022;
+    color: #FFD700;
+    border-radius: 12px;
+    padding: 3px 12px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    margin-left: 8px;
+  }
+  .legendary-popup .legendary-gen {
+    font-size: 1rem;
+    color: #aaa;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .legendary-popup .legendary-desc {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    color: #fff;
+  }
+  .legendary-popup .close-legendary-popup {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: #FFD700;
+    font-size: 2rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.2s;
+  }
+  .legendary-popup .close-legendary-popup:hover {
+    color: #fff;
+  }
+  @keyframes popupIn {
+    from { opacity: 0; transform: translate(-50%, -60%) scale(0.8); }
+    to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  }
+</style>
+<script>
+// Délégation d'événement pour tous les .legendary-item (modale unifiée, sans redirection)
+document.addEventListener('click', function(e) {
+  let target = e.target;
+  // Remonte jusqu'à .legendary-item
+  while (target && !(target.classList && target.classList.contains('legendary-item'))) {
+    target = target.parentElement;
+  }
+  if (target && target.classList && target.classList.contains('legendary-item')) {
+    // Empêche toute action par défaut (ex: lien)
+    if (e.preventDefault) e.preventDefault();
+    if (e.stopPropagation) e.stopPropagation();
+    e.returnValue = false;
+    const name = target.querySelector('.legendary-name')?.textContent?.trim() || target.textContent.trim();
+    if (window.openPokemonModal) {
+      window.openPokemonModal(name);
+    } else {
+      const modal = document.getElementById('pokemon-modal');
+      const details = document.getElementById('modal-pokemon-details');
+      if (details) details.innerHTML = '<h2>Détails du Pokémon</h2><p>' + name + '</p>';
+      if (modal) modal.style.display = 'block';
+    }
+  }
+});
+
+// Gestion fermeture modale détails Pokémon
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.close-modal').forEach(btn => {
+    btn.onclick = function() {
+      document.getElementById('pokemon-modal').style.display = 'none';
+    };
+  });
+  window.onclick = function(event) {
+    const modal = document.getElementById('pokemon-modal');
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  };
+});
+</script>
+</body>
+</html>

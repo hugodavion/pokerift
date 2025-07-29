@@ -1,0 +1,435 @@
+/* ==============================================
+   STYLES SPÉCIFIQUES POUR LA PAGE RÉGIONS
+   ============================================== */
+
+/* Navigation des régions */
+.region-navigation {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(65, 90, 119, 0.1));
+    border-radius: 25px;
+    margin-bottom: 40px;
+}
+
+.region-nav-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.nav-btn {
+    padding: 15px 20px;
+    background: linear-gradient(145deg, rgba(13, 27, 42, 0.8), rgba(65, 90, 119, 0.3));
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 15px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.nav-btn:hover::before {
+    left: 100%;
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 215, 0, 0.4);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.1);
+    background: linear-gradient(145deg, rgba(255, 215, 0, 0.1), rgba(65, 90, 119, 0.4));
+}
+
+/* Container des régions */
+.regions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.region-section {
+    scroll-margin-top: 100px;
+}
+
+/* Cards des régions */
+.region-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    border-radius: 25px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.region-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Header des régions avec image */
+.region-header {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.region-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.region-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    filter: brightness(0.7);
+}
+
+.region-card:hover .region-image img {
+    transform: scale(1.05);
+    filter: brightness(0.9);
+}
+
+.region-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 40px 30px 30px;
+    color: white;
+}
+
+.region-overlay h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 0 0 10px 0;
+    color: var(--couleur2);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-family: 'Press Start 2P', monospace;
+}
+
+.generation {
+    background: rgba(255, 215, 0, 0.9);
+    color: var(--couleur1);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Contenu des régions */
+.region-content {
+    padding: 40px;
+}
+
+.region-info h3 {
+    font-size: 1.8rem;
+    color: var(--couleur2);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.region-info p {
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+}
+
+/* Détails de la région */
+.region-details {
+    margin-bottom: 30px;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.detail-icon {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+.detail-item strong {
+    color: var(--couleur2);
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.detail-item p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+}
+
+/* Statistiques des régions */
+.region-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.region-stats .stat {
+    text-align: center;
+    padding: 25px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.region-stats .stat:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.1);
+}
+
+.region-stats .stat-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--couleur2);
+    margin-bottom: 10px;
+    font-family: 'Press Start 2P', monospace;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.region-stats .stat-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Pokémon légendaires */
+.legendary-pokemon {
+    margin-top: 30px;
+}
+
+.legendary-pokemon h4 {
+    font-size: 1.4rem;
+    color: var(--couleur2);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.legendary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.legendary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: linear-gradient(145deg, rgba(13, 27, 42, 0.6), rgba(65, 90, 119, 0.2));
+    border-radius: 12px;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.legendary-item:hover {
+    transform: translateX(5px);
+    border-color: rgba(255, 215, 0, 0.3);
+    background: linear-gradient(145deg, rgba(255, 215, 0, 0.1), rgba(65, 90, 119, 0.3));
+}
+
+.legendary-name {
+    font-weight: 600;
+    color: white;
+}
+
+.legendary-type {
+    background: rgba(255, 215, 0, 0.2);
+    color: var(--couleur2);
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* ==============================================
+   ANIMATIONS ET EFFETS
+   ============================================== */
+
+/* Animation d'entrée pour les cartes */
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.region-card {
+    animation: slideInFromLeft 0.6s ease-out;
+}
+
+.region-card:nth-child(even) {
+    animation: slideInFromRight 0.6s ease-out;
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Effet de parallaxe léger sur les images */
+@keyframes subtleFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+.region-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), transparent);
+    z-index: 1;
+    animation: subtleFloat 4s ease-in-out infinite;
+}
+
+/* ==============================================
+   RESPONSIVE DESIGN
+   ============================================== */
+
+@media (max-width: 768px) {
+    .region-nav-buttons {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    
+    .nav-btn {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .region-overlay h2 {
+        font-size: 2rem;
+    }
+    
+    .region-content {
+        padding: 25px;
+    }
+    
+    .region-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .region-stats .stat-number {
+        font-size: 2rem;
+    }
+    
+    .detail-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .legendary-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .region-nav-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .region-header {
+        height: 200px;
+    }
+    
+    .region-overlay {
+        padding: 20px 20px 15px;
+    }
+    
+    .region-overlay h2 {
+        font-size: 1.5rem;
+    }
+    
+    .region-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==============================================
+   EFFETS SPÉCIAUX PAR RÉGION
+   ============================================== */
+
+/* Kanto - Rouge/Bleu */
+#kanto .region-card:hover {
+    box-shadow: 0 20px 40px rgba(255, 0, 0, 0.2);
+}
+
+/* Johto - Or/Argent */
+#johto .region-card:hover {
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+}
+
+/* Hoenn - Bleu océan */
+#hoenn .region-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 100, 200, 0.2);
+}
+
+/* Sinnoh - Platine */
+#sinnoh .region-card:hover {
+    box-shadow: 0 20px 40px rgba(150, 150, 150, 0.2);
+}
+
+/* Unys - Noir/Blanc */
+#unys .region-card:hover {
+    box-shadow: 0 20px 40px rgba(100, 100, 100, 0.2);
+}
+
+/* Paldea - Écarlate/Violet */
+#paldea .region-card:hover {
+    box-shadow: 0 20px 40px rgba(150, 0, 150, 0.2);
+}

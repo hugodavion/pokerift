@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Émulation Pokémon DS & 3DS</title>
+    <meta name="description" content="Liste des jeux Pokémon DS et 3DS, guides d'émulation avec DeSmuME et Citra.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modern-improvements.css">
+    <link rel="stylesheet" href="css/title-override.css">
+    <style>
+    .emulation-main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 18px 48px 18px;
+      background: rgba(255,255,255,0.10);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+    }
+    .emulator-tabs {
+      display: flex;
+      gap: 1.2rem;
+      margin: 2.2rem 0 1.2rem 0;
+      justify-content: center;
+    }
+    .tab-btn {
+      background: linear-gradient(90deg, #f7d358 0%, #f5a623 100%);
+      color: #222;
+      font-family: 'Poppins', 'Press Start 2P', Arial, sans-serif;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      padding: 0.7em 1.5em;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 2px 8px 0 #0002;
+      transition: background 0.2s, transform 0.1s;
+      outline: none;
+    }
+    .tab-btn.active, .tab-btn:hover, .tab-btn:focus {
+      background: linear-gradient(90deg, #f5a623 0%, #f7d358 100%);
+      color: #fff;
+      transform: scale(1.07);
+    }
+    .game-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 1.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0 2.2rem 0;
+    }
+    .game-list li {
+      background: #fff6;
+      color: #222;
+      border-radius: 10px;
+      padding: 0.5em 1.1em;
+      font-size: 1.08rem;
+      font-family: 'Poppins', Arial, sans-serif;
+      box-shadow: 0 1px 4px #0001;
+      margin: 0;
+      white-space: nowrap;
+    }
+    .emulator-tab-content {
+      background: rgba(255,255,255,0.09);
+      border-radius: 14px;
+      padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 2px 12px #0001;
+    }
+    .emulator-tab-content h3 {
+      color: #f7d358;
+      font-size: 1.3rem;
+      margin-bottom: 1.1rem;
+      font-family: 'Press Start 2P', monospace;
+      text-shadow: 0 2px 8px #ffd70033;
+    }
+    .emulator-tab-content ol {
+      margin-left: 1.2rem;
+      margin-bottom: 1.1rem;
+    }
+    .emulator-tab-content li {
+      margin-bottom: 0.5em;
+      font-size: 1.05rem;
+    }
+    .emulator-tab-content p {
+      color: #333;
+      font-size: 1.04rem;
+      margin-bottom: 0.5em;
+    }
+    @media (max-width: 700px) {
+      .emulation-main { padding: 10px 2vw 40px 2vw; }
+      .game-list { gap: 0.5rem 0.7rem; }
+      .tab-btn { font-size: 1rem; padding: 0.6em 1em; }
+    }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Barre Latérale -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="images/hoopa.png" alt="Pokémon Rift Logo" class="logo">
+            <div class="sidebar-title">PokeRift</div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="index.html"><img src="images/center.png" alt="Accueil"> <span>Accueil</span></a></li>
+                <li><a href="pokedex.html"><img src="images/pokedex.png" alt="Pokédex"> <span>Pokédex</span></a></li>
+                <li><a href="regions.html"><img src="images/map.png" alt="Régions"> <span>Régions</span></a></li>
+                <li><a href="personnages.html"><img src="images/red.jpg" alt="Personnages"> <span>Personnages</span></a></li>
+                <li><a href="lore.html"><img src="images/center.png" alt="Lore"> <span>Lore</span></a></li>
+                <li><a href="emulation.html" class="active"><img src="images/pokedex.png" alt="Emulation"> <span>Émulation</span></a></li>
+                <li><a href="mini-jeux.html"><img src="images/center.png" alt="Mini-jeux"> <span>Mini-jeux</span></a></li>
+            </ul>
+        </nav>
+    </aside>
+    <header class="header">
+        <h1>Émulation Pokémon DS & 3DS</h1>
+    </header>
+    <main class="content">
+        <div class="emulation-main">
+        <section>
+            <h2 style="color:#f7d358;font-family:'Press Start 2P',monospace;font-size:1.4rem;text-shadow:0 2px 8px #ffd70033;">Jeux Pokémon sur DS (et Game Boy compatibles)</h2>
+            <ul class="game-list">
+                <li>Pokémon Diamant & Perle</li>
+                <li>Pokémon Platine</li>
+                <li>Pokémon HeartGold & SoulSilver</li>
+                <li>Pokémon Noir & Blanc</li>
+                <li>Pokémon Noir 2 & Blanc 2</li>
+                <li>Pokémon Donjon Mystère : Explorateurs du Temps/Ombre/Ciel</li>
+                <li>Pokémon Ranger (et suites)</li>
+                <li>Pokémon Conquest</li>
+                <li>Pokémon Version Rouge Feu & Vert Feuille <span style="color:#888;font-size:0.95em;">(GBA)</span></li>
+                <li>Pokémon Version Rubis & Saphir <span style="color:#888;font-size:0.95em;">(GBA)</span></li>
+                <li>Pokémon Version Émeraude <span style="color:#888;font-size:0.95em;">(GBA)</span></li>
+                <li>Pokémon Version Rouge/Bleu/Jaune <span style="color:#888;font-size:0.95em;">(GB)</span></li>
+                <li>Pokémon Version Or/Argent/Cristal <span style="color:#888;font-size:0.95em;">(GBC)</span></li>
+                <li>Pokémon Pinball <span style="color:#888;font-size:0.95em;">(GB/GBA)</span></li>
+                <li>Pokémon Puzzle Challenge <span style="color:#888;font-size:0.95em;">(GBC)</span></li>
+                <li>Pokémon Trading Card Game <span style="color:#888;font-size:0.95em;">(GB/GBC)</span></li>
+            </ul>
+        </section>
+        <section>
+            <h2 style="color:#f7d358;font-family:'Press Start 2P',monospace;font-size:1.4rem;text-shadow:0 2px 8px #ffd70033;">Jeux Pokémon sur 3DS</h2>
+            <ul class="game-list">
+                <li>Pokémon X & Y</li>
+                <li>Pokémon Rubis Oméga & Saphir Alpha</li>
+                <li>Pokémon Soleil & Lune</li>
+                <li>Pokémon Ultra-Soleil & Ultra-Lune</li>
+                <li>Pokémon Méga Donjon Mystère</li>
+                <li>Pokémon Rumble World</li>
+                <li>Pokémon Picross</li>
+                <li>Pokémon Shuffle</li>
+            </ul>
+        </section>
+        <div class="emulator-tabs">
+            <button class="tab-btn" onclick="showTab('desmume')">DeSmuME (DS/GBA/GB)</button>
+            <button class="tab-btn" onclick="showTab('citra')">Citra (3DS)</button>
+        </div>
+        <div id="desmume" class="emulator-tab-content">
+            <h3>Émuler la Nintendo DS (et jeux GBA/GB compatibles) avec DeSmuME</h3>
+            <ol>
+                <li>Téléchargez <a href="https://desmume.org/" target="_blank">DeSmuME</a> (Windows/Mac/Linux).</li>
+                <li>Ouvrez l'émulateur puis chargez votre ROM Pokémon DS (.nds), GBA (.gba) ou GB (.gb/.gbc).</li>
+                <li>Configurez les touches et les options graphiques selon vos préférences.</li>
+                <li>Sauvegardez régulièrement (sauvegarde rapide possible).</li>
+            </ol>
+            <p><strong>Astuce :</strong> Pour de meilleures performances, activez le rendu OpenGL si disponible.<br>
+            DeSmuME permet aussi de transférer des Pokémon entre jeux GBA et DS compatibles.</p>
+        </div>
+        <div id="citra" class="emulator-tab-content" style="display:none">
+            <h3>Émuler la Nintendo 3DS avec Citra</h3>
+            <ol>
+                <li>Téléchargez <a href="https://citra-emu.org/" target="_blank">Citra</a> (Windows/Mac/Linux).</li>
+                <li>Ajoutez vos jeux 3DS (.3ds ou .cia) dans Citra.</li>
+                <li>Configurez les contrôles, la langue et les options graphiques.</li>
+                <li>Certains jeux nécessitent des fichiers supplémentaires (ex : fichiers système, clés de déchiffrement).</li>
+            </ol>
+            <p><strong>Astuce :</strong> Citra propose des options de mise à l'échelle et de filtrage pour améliorer les graphismes.</p>
+        </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Pokémon Rift - Site de fans</p>
+    </footer>
+    <script>
+    function showTab(tab) {
+        document.getElementById('desmume').style.display = (tab === 'desmume') ? 'block' : 'none';
+        document.getElementById('citra').style.display = (tab === 'citra') ? 'block' : 'none';
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelector('.tab-btn[onclick*="' + tab + '"]').classList.add('active');
+    }
+    // Onglet par défaut
+    showTab('desmume');
+    </script>
+</body>
+</html>
